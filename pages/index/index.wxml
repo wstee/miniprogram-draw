@@ -1,0 +1,50 @@
+<!--pages/draw/draw.wxml-->
+<view class='container'>
+    <canvas hidden="{{selfMake}}" style='{{"width:"+canvasSize.width+"px;height:"+canvasSize.height+"px;"}}' class="canvas" id="canvas" canvas-id="canvas" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd"
+      bindtouchcancel="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
+    
+    <view class='operation-panel'>
+      <view class='left'>
+        <view class='thickness'>
+          <view class='label'>
+            粗细
+          </view>
+          <button form-type='submit' class='form-button thickness-item' data-index="0" bindtap='selectPen'>
+            <view class='xs {{thickness ==0 ? "pen-border":""}}' style='background: {{penColor[colorIndex]}}'></view>
+          </button>
+          <button form-type='submit' class='form-button thickness-item' data-index="1" bindtap='selectPen'>
+            <view class='s {{thickness ==1 ? "pen-border":""}}' style='background: {{penColor[colorIndex]}}'></view>
+          </button>
+          <button form-type='submit' class='form-button thickness-item' data-index="2" bindtap='selectPen'>
+            <view class='m {{thickness ==2 ? "pen-border":""}}' style='background: {{penColor[colorIndex]}}'></view>
+          </button>
+          <button form-type='submit' class='form-button thickness-item' data-index="3" bindtap='selectPen'>
+            <view class='l {{thickness ==3 ? "pen-border":""}}' style='background: {{penColor[colorIndex]}}'></view>
+          </button>
+          <button form-type='submit' class='form-button thickness-item' data-index="4" bindtap='selectPen'>
+            <view class='xl {{thickness ==4 ? "pen-border":""}}' style='background: {{penColor[colorIndex]}}'></view>
+          </button>
+        </view>
+        <view class='pen-color'>
+          <view class='label'>
+            颜色
+          </view>
+          <scroll-view scroll-y scroll-with-animation class='color-list'>
+            <view bindtap='selectColor' data-index="{{index}}" wx:for="{{penColor}}" wx:key="{{index}}" class='color-item {{colorIndex == index?"select-color":""}}' style='background:{{item}};'></view>
+          </scroll-view>
+          <view class='prompt'>上滑更多</view>
+        </view>
+      </view>
+      <view class='right'>
+        <button form-type='submit' class='form-button back' hover-class='click-status' bindtap='backDraw'>
+          <view class='iconfont icon-back'></view>回退
+        </button>
+        <button form-type='submit' class='form-button erase {{eraseClass}}' hover-class='click-status' bindtap='eraseDraw'>
+          <view class='iconfont icon-erase'></view>擦除
+        </button>
+        <button form-type='submit' class='form-button delete' hover-class='click-status' bindtap='cleardraw'>
+          <view class='iconfont icon-delete'></view>清空
+        </button>
+      </view>
+    </view>
+  </view>

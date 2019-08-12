@@ -1,0 +1,136 @@
+/* pages/draw/draw.wxss */
+page { 
+  background: rgba(0, 0, 0, .1);
+}
+button.form-button{background-color:transparent;padding:0;margin:0;display:inline;position:static;border:0;padding-left:0;padding-right:0;border-radius:0;font-size:0rpx;color:inherit;}
+button.form-button::after{content:'';width:0;height:0;-webkit-transform:scale(1);transform:scale(1);display:none;background-color:transparent;}
+canvas{
+  background: #fff;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+.operation-panel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 350rpx;
+  padding: 20rpx;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+ width: 600rpx;
+ height: 100%;
+}
+.label {
+  margin-right: 10rpx;
+  font-size: 32rpx;
+  white-space: nowrap;
+}
+.thickness {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.thickness-item {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 15rpx;
+}
+.xs,.s,.m,.l,.xl {
+  box-sizing: content-box;
+  border-radius: 50%;
+}
+.pen-border {
+  border: 6rpx solid #fff;
+  box-shadow: 0 0 5rpx #333;
+  animation: jello .5s ease infinite;
+}
+@keyframes jello {
+  from {
+  }
+  to {
+    transform: skew(0,10deg) rotateZ(10deg);
+  }
+}
+.xs {
+  width: 10rpx;
+  height: 10rpx;
+}
+.s {
+  width: 20rpx;
+  height: 20rpx;
+}
+.m {
+  width: 30rpx;
+  height: 30rpx;
+}
+.l {
+  width: 40rpx;
+  height: 40rpx;
+}
+.xl {
+  width: 50rpx;
+  height: 50rpx;
+}
+.pen-color {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 600rpx;
+  height: 150rpx;
+  overflow: hidden;
+}
+.color-list {
+  width: 500rpx;
+  height: 150rpx;
+}
+.color-item {
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+.select-color {
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.select-erase {
+  background: rgba(255, 255, 255, .5);
+  box-shadow: 0 0 3rpx 3rpx #333;
+}
+.prompt {
+  width: 30rpx;
+  font-size: 24rpx;
+  color: red;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100rpx;
+  height: 180rpx;
+  font-size: 24rpx;
+}
+.back,.erase,.delete{
+  width: 100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx !important;
+  border-radius: 8rpx;
+}
+/* 点击态 */
+.click-status {
+  background: rgba(0, 0, 0, .2);
+}
